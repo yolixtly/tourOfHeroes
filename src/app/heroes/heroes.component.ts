@@ -21,8 +21,12 @@ export class HeroesComponent implements OnInit {
         console.log('Heroes Component Has been Rendered');
         this.getHeroes();
     }
+
     getHeroes(): void {
-        this.heroes = this.heroService.getHeroes();
+        this.heroService.getHeroes()
+            .subscribe((heroes) => {
+                this.heroes = heroes;
+            });
     }
 
 }
